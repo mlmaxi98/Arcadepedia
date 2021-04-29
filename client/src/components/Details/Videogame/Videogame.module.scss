@@ -1,0 +1,36 @@
+.container-game{
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(8, 11, 46, 1) 100%);
+    min-height:90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.game-name{
+    text-align: center;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #06a3c4 0px 0px 20px, #06a3c4 0px 0px 30px, #06a3c4 0px 0px 40px, #06a3c4 0px 0px 50px, #06a3c4 0px 0px 75px;
+}
+.game-background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+    width: 60%;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.game-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* height: 100%; */
+    width: 40%;
+    min-height:100%;
+    text-align: left;
+    padding: 0 10px;
+}
+.game-data span{
+    text-decoration: underline;
+}

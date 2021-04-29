@@ -1,0 +1,199 @@
+.container-Home {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(8, 11, 46, 1) 100%);
+    min-height: 90vh;
+    /* min-width: 100vh; */
+    text-shadow:0 1px 0 rgb(0, 195, 255);
+}
+
+.barra {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gif{
+    margin: 30px 0;
+    width: 30%;
+    height: 80%;
+}
+
+.caja {
+    /*  position: relative; */
+    width: 23%;
+    padding: 10px 20px;
+    margin: 30px 10px;
+    height: 40vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    background-image: url(../../images/card2.png);
+    background-repeat: round;
+    font-weight: bold;
+    box-shadow: 0px 10px 20px rgb(0, 195, 255);
+    transition: 0.5s;
+}
+
+.caja:hover {
+    box-shadow: 0px 10px 20px rgb(43, 197, 159);
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #06a3c4 0px 0px 20px, #06a3c4 0px 0px 30px, #06a3c4 0px 0px 40px, #06a3c4 0px 0px 50px, #06a3c4 0px 0px 75px;
+}
+
+.pictures {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.container-img {
+    height: 80%;
+}
+
+.container-title {
+    height: 10%;
+    font-size: larger;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* color: crimson; */
+}
+
+.container-title h1 {
+    transition: 0.5s;
+}
+
+.container-title h1:hover {
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(43, 197, 159) 0px 0px 20px, rgb(43, 197, 159) 0px 0px 30px, rgb(43, 197, 159) 0px 0px 40px, rgb(43, 197, 159) 0px 0px 50px, rgb(43, 197, 159) 0px 0px 75px;
+    cursor: pointer;
+}
+
+.container-genres {
+    font-size: large;
+    height: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form-busqueda {
+    /* border: 1px solid blueviolet; */
+    display: flex;
+    padding: 10px 20px;
+}
+
+.form-buscador {
+    display: flex;
+    flex-direction: column;
+}
+.form-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div-filtros {
+    padding: 0px 30px;
+}
+.div-order {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.input-busqueda {
+    margin: 5px 10px;
+    width: 20%;
+    background-color: #080f27;
+    border-radius: 5px;
+    color: white;
+}
+
+.input-boton {
+    margin: 5px;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: 0.5s;
+    color: white;
+    background-color: rgba(8, 11, 46, 1);
+    box-shadow: 0px 5px 10px rgb(0, 195, 255);
+}
+
+.input-boton:hover {
+    /* background-color: rgb(43, 197, 159); */
+    box-shadow: 0px 5px 10px rgb(43, 197, 159);
+}
+
+::placeholder {
+    color: white;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.pagination-bot {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 10px;
+    padding-bottom: 20px;
+    
+}
+
+.count {
+    background-color: rgba(8, 11, 46, 1);
+    margin: 0 10px;
+    text-align: center;
+    width: 30px;
+    text-shadow:0 1px 0 rgb(0, 195, 255);
+    box-shadow: 0px 5px 10px rgb(0, 195, 255);
+}
+
+.np {
+    background-color: rgba(8, 11, 46, 1);
+    box-shadow: 0px 5px 10px rgb(0, 195, 255);
+    transition: 0.5s;
+    padding: 0 5px;
+    text-align: center;
+    text-shadow:0 1px 0 rgb(0, 195, 255);
+}
+
+.np:hover {
+    box-shadow: 0px 5px 10px rgb(43, 197, 159);
+}
+select{
+    background-color: rgba(8, 11, 46, 1);
+    color:white;
+    text-shadow:0 1px 0 rgb(0, 195, 255);
+}
+.input-filtros{
+    margin-right: 10px;
+}
+.btnOrd{
+    background-color: rgba(8, 11, 46, 1);
+    box-shadow: 0px 5px 10px rgb(0, 195, 255);
+    transition: 0.5s;
+    padding: 0 5px;
+    height: 100%;
+    text-align: center;
+    text-shadow:0 1px 0 rgb(0, 195, 255);
+    margin-left: 10px;
+}
+.btnOrd:hover{
+    box-shadow: 0px 5px 10px rgb(43, 197, 159);
+}
+.container-rating{
+    display: flex;
+    justify-content: center;
+}
