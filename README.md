@@ -1,5 +1,5 @@
 # Arcades
 
 ```
-En contrucción! 🚧🏗👷
+En construcción! 🚧🏗👷
 ```
