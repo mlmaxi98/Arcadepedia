@@ -3,8 +3,14 @@ $tablet:768px;
 $laptop:992px;
 $pc:1200px;
 $pcxl:1600px;
-
-.swiper-slide {
+.container{
+    height:100%;
+    width:100%;
+    img{
+        height:50%
+    }
+}
+/* .swiper-slide {
 
     @media screen and (min-width: $laptop) {
         height: 20rem;
@@ -13,8 +19,10 @@ $pcxl:1600px;
     @media screen and (min-width: $pcxl) {
         height: 25rem;
     }
-}
-
+} */
+/* .swiper-container{
+    width: 33%;
+} */
 /* .swiper-button-prev {
     color: transparent;
     transition: 0.5s;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getGenreDetail } from '../../../Redux/actions/index'
+import { getGenre } from '../../../Redux/actions/index'
 import styles from './Genre.module.scss'
 import Loader from 'react-loader-spinner';
 const Genre = (props) => {
@@ -10,7 +10,7 @@ const Genre = (props) => {
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(false)
-        dispatch(getGenreDetail(id))
+        dispatch(getGenre(id))
     }, [dispatch, id])
 
     /* useEffect(() => {

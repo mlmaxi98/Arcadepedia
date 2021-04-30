@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Videogame.module.scss'
-import { getGameDetails } from '../../../Redux/actions/index'
+import { getGame } from '../../../Redux/actions/index'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Videogame.module.scss'
 import Loader from 'react-loader-spinner';
@@ -10,7 +10,7 @@ const Videogame = (props) => {
     const game = useSelector(state => state.gameDetail)
 
     useEffect(() => {
-        dispatch(getGameDetails(id))
+        dispatch(getGame(id))
     }, [dispatch, id])
 
 

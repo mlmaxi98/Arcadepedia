@@ -8,14 +8,28 @@ $pcxl:2100px;
 $gris:#2C3A40;
 
 .container {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 1rem;
-    .id{
-        
+    width:100%;
+
+    .name {
+        height: 10%
     }
+
+    .images {
+        height: 90%;
+
+        img {
+            height: 90%;
+            width: 90%;
+            margin: auto;
+        }
+    }
+
+}
+
+/* .id {}
 
     .card {
         height: 100%;
@@ -270,4 +284,4 @@ $gris:#2C3A40;
             color: $gris;
         }
     }
-}
+} */

@@ -1,60 +1,59 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import './Home.css'
-import Loader from 'react-loader-spinner';
+import styles from './Home.module.scss'
 import { NavLink } from 'react-router-dom'
 import { getGames, getGenres, getPlatforms } from '../../Redux/actions/index'
 import Cards from './Cards/Cards';
 import Slider from './Slider/Slider';
-function Home(props) {
-    const dispatch = useDispatch();
-    const [page, setPage] = useState(0);
-    const [genre, setGenre] = useState('');
-    const [order, setOrder] = useState('');
-    const [rating, setRating] = useState('');
-    const [name, setName] = useState('');
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+const Home = (props) => {
+    const dispatch = useDispatch()
     const games = useSelector(state => state.games)
-    const genres = useSelector(state => state.genres)
-    const platforms = useSelector(state => state.platforms)
+    //const genres = useSelector(state => state.genres)
+    //const platforms = useSelector(state => state.platforms)
 
 
 
     useEffect(() => {
 
-        dispatch(getGames())
-        dispatch(getGenres())
-        dispatch(getPlatforms())
+        dispatch(getGames('','action,indie','','name',2,3))
+        //dispatch(getGenres())
+        //dispatch(getPlatforms())
 
     }, [dispatch])
 
-    useEffect(() => {
-        if (games && genres && platforms) {
-            console.log('Juegos Cargados!')
-        }
-    }, [games, genres, platforms])
-
-
 
     return (
-        <div className='container-Home'>
-            {games && genres && platforms ?
-                <>
-                    <div className='genres'>
-                        <Slider genres={games} />
+        <div className={props.dark ? styles.containerDark : styles.container}>
+            {games ?
+                <div className={styles.sliders}>
+                    <div className={styles.genres}>
+                        <Carousel
+                            autoPlay={true}
+                            infiniteLoop={true}
+                            stopOnHover={true}
+                            swipeable={true}
+                            emulateTouch={true}
+                            showThumbs={false}
+                        >
+                            {games.map((genre) => {
+                                return <div key={genre.id} className={styles.image}>
+                                    <img src={genre.image_background} alt='' />
+                                </div>
+                            })}
+                        </Carousel>
                     </div>
-                    <div className='genres'>
-                        <Slider genres={genres} />
+                    <div className={styles.info}>
+                        <span>lorem*30</span>
                     </div>
-                    <div className='platforms'>
-                        <Slider genres={platforms} />
-                    </div>
-                </>
+                </div>
                 :
                 <div className="spinner">
-                    <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />
+
                 </div>
             }
+
         </div>
     )
 }

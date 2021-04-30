@@ -1,56 +1,56 @@
-import * as A from '../actions/consts'
+import * as GET from '../actions/GET'
 
 const initialState = {
     games: [],
-    gameDetail: {},
+    game: {},
     genres: [],
-    genreDetail: {},
+    genre: {},
     platforms: [],
-    platformDetail: {},
-    dark: true,
+    platform: {},
+    dark: false,
 }
 function rootReducer(state = initialState, action) {
     switch (action.type) {
-        case A.GET_GAMES: {
+        case GET.GAMES: {
             return {
                 ...state,
                 games: action.payload
             }
         }
 
-        case A.GET_GAME_DETAILS: {
+        case GET.GAME: {
             return {
                 ...state,
                 gameDetail: action.payload
             }
         }
-        case A.GET_GENRES: {
+        case GET.GENRES: {
             return {
                 ...state,
                 genres: action.payload
             }
         }
-        case A.GET_GENRE_DETAILS: {
+        case GET.GENRE: {
             return {
                 ...state,
                 genreDetail: action.payload
             }
         }
 
-        case A.GET_PLATFORMS: {
+        case GET.PLATFORMS: {
             return {
                 ...state,
                 platforms: action.payload
             }
         }
-        case A.GET_PLATFORM_DETAILS: {
+        case GET.PLATFORM: {
             return {
                 ...state,
                 platforms: action.payload
             }
         }
 
-        case A.SET_DARK:
+        case GET.DARK:
             return {
                 ...state,
                 dark: action.payload,

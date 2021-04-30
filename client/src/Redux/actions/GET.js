@@ -1,0 +1,7 @@
+export const GAME = 'GAME'
+export const GENRE = 'GENRE'
+export const PLATFORM = 'PLATFORM'
+export const GAMES = 'GAMES'
+export const GENRES = 'GENRES'
+export const PLATFORMS = 'PLATFORMS'
+export const DARK = 'DARK'

@@ -1,59 +1,69 @@
 import axios from 'axios';
-import * as A from './consts'
+import * as API from './API'
+import * as GET from './GET'
 
-export const getGames = () => {
+export const getGames = (search, genres, platforms, ordering, page = 1, size = 15) => {
+    console.log(`${API.GAMES}&search=${search}&genres=${genres}&platforms=${platforms}&page=${page}&ordering=${ordering}&page_size=${size}`)
+    let link = `${API.GAMES}&page=${page}&page_size=${size}`
+    if (search) link += `&search=${search}`;
+    if (genres) link += `&genres=${genres}`;
+    if (platforms) link += `&platforms=${platforms}`;
+    if (ordering) link += `&ordering=${ordering}`;
+    console.log(link)
     return async (dispatch) => {
-        const request = await axios.get(`${A.API_GAME}?key=${A.API_KEY}`)
+
+        const request = await axios.get(link)
         dispatch({
-            type: A.GET_GAMES, payload: request.data.results
+            type: GET.GAMES, payload: request.data.results
         })
     }
 }
-export const getGameDetails = (id) => {
+export const getGame = (id) => {
     return async (dispatch) => {
-        const request = await axios.get(`${A.API_GAME}/${id}?key=${A.API_KEY}`)
+        const request = await axios.get(`${API.GAME}/${id}?key=${API.KEY}`)
         dispatch({
-            type: A.GET_GAME_DETAILS, payload: request.data
+            type: GET.GAME, payload: request.data
         })
     }
 }
 export const getGenres = () => {
     return async (dispatch) => {
-        const request = await axios.get(`${A.API_GENRE}?key=${A.API_KEY}`)
+        const request = await axios.get(`${API.GENRES}`)
         dispatch({
-            type: A.GET_GENRES, payload: request.data.results
+            type: GET.GENRES, payload: request.data.results
         })
     }
 }
-export const getGenreDetail = (id) => {
+export const getGenre = (id) => {
     return async (dispatch) => {
-        const request = await axios.get(`${A.API_GENRE}/${id}?key=${A.API_KEY}`)
+        const request = await axios.get(`${API.GENRE}/${id}?key=${API.KEY}`)
         dispatch({
-            type: A.GET_GENRE_DETAILS, payload: request.data
+            type: GET.GENRE, payload: request.data
         })
     }
 }
 
+
 export const getPlatforms = () => {
     return async (dispatch) => {
-        const request = await axios.get(`${A.API_PLATFORM}?key=${A.API_KEY}`)
+        const request = await axios.get(`${API.PLATFORMS}`)
         dispatch({
-            type: A.GET_PLATFORMS, payload: request.data.results
+            type: GET.PLATFORMS, payload: request.data.results
         })
     }
 }
 export const getPlatformDetails = (id) => {
     return async (dispatch) => {
-        const request = await axios.get(`${A.API_PLATFORM}/${id}?key=${A.API_KEY}`)
+        const request = await axios.get(`${API.PLATFORM}/${id}?key=${API.KEY}`)
         dispatch({
-            type: A.GET_PLATFORM_DETAILS, payload: request.data
+            type: GET.PLATFORM, payload: request.data
         })
     }
 }
 export const setDarkMode = (dark) => {
     return function (dispatch) {
         dispatch({
-            type: A.SET_DARK,
+            type: GET.DARK,
             payload: dark,
         });
     };
