@@ -11,23 +11,12 @@
         min-height: 100%;
         flex-direction: row;
         justify-content: space-around;
+        flex-wrap: wrap;
 
-        .one {
-            min-height: 100%;
+        .card {
+            min-height: 15rem;
             width: 30%;
-            margin: auto;
-            background-color: green;
-
-        }
-
-        .two {
-            @extend .one;
-            background-color: aqua;
-        }
-
-        .three {
-            @extend .one;
-            background-color: brown;
+            margin: 2rem 0;
         }
 
         .info {

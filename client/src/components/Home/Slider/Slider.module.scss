@@ -4,68 +4,42 @@ $laptop:992px;
 $pc:1200px;
 $pcxl:1600px;
 
-.card {
-    height: 20rem;
+.container {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0;
+    border: 1px solid white;
+    border-radius: 1rem;
 
     .title {
         display: flex;
         justify-content: center;
         align-items: center;
-
         min-height: 10%;
     }
 
-    .image {
-        background-color: aqua;
-        height: 90%;
-        width: 100%;
-        margin: auto;
+    .images {
+        min-height: 80%;
+        width: 80%;
+        //margin: auto;
+        //align-items: center;
+        //padding: 1rem;
+        display: flex;
+        justify-content: center;
 
         img {
-            height: 100%;
+            margin: auto;
+            min-height: 80%;
             width: 100%;
         }
     }
-}
 
-/* .swiper-slide {
-
-    @media screen and (min-width: $laptop) {
-        height: 20rem;
-    }
-
-    @media screen and (min-width: $pcxl) {
-        height: 25rem;
-    }
-} */
-/* .swiper-container{
-    width: 33%;
-} */
-/* .swiper-button-prev {
-    color: transparent;
-    transition: 0.5s;
-    background-color: #fff;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    //border: 1px solid black;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
-    opacity: 0;
-    transition: 0.5s;
-    background-image: url('https://www.creativefabrica.com/wp-content/uploads/2019/02/Left-Arrow-Icon-by-Kanggraphic-580x386.jpg');
-    background-repeat: round;
-
-    &:hover {
-        opacity: 1;
+    .platforms {
+        min-height: 10%;
+        display: flex;
+        width: 100%;
     }
 }
-
-.swiper-button-next {
-    @extend .swiper-button-prev;
-    background-image: url('https://www.creativefabrica.com/wp-content/uploads/2019/02/Right-Arrow-Icon-by-Kanggraphic-1.jpg');
-    background-repeat: round;
-} */
