@@ -1,16 +1,16 @@
 .container {
-    min-height: 5vh;
+    height: 50px;
     display: flex;
     flex-direction: column;
-
-    .hr {
+    
+    /*.hr {
         width: 100%;
         border: 1 px solid rgb(255, 255, 255);
         box-shadow: 0px 10px 20px rgb(0, 195, 255);
-    }
+    } */
 
     .footer {
-        height: 90%;
+        height: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;

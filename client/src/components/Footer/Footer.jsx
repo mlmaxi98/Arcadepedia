@@ -6,7 +6,6 @@ const Footer = (props) => {
 
 
     return <div className={props.dark ? styles.containerDark : styles.container}>
-        <hr className={styles.hr} />
         <div className={styles.footer}>
             <a className='icon' href='https://www.facebook.com/mikuxlyuuzaki/'>
                 <img className='icono' src={LogoF} alt='#'></img>

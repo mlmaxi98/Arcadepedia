@@ -1,23 +1,37 @@
 import React from 'react'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 import styles from './Slider.module.scss'
-const Slider = (props) => {
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+const Slider = ({ games }) => {
     return (
-        <div className={props.dark ? styles.containerDark : styles.container}>
+        <Carousel
+            showThumbs={false}
+            showIndicators={false}
+            autoPlay={true}
+            infiniteLoop={true}
+            stopOnHover={true}
+            swipeable={true}
+            emulateTouch={true}
+        >
+            {games.sort(() => Math.random() - 0.5).map((game) => {
+                return (
+                    <div
+                        key={game.id}
+                        className={styles.card}
+                    >
+                        <div
+                            className={styles.image}
 
-            <Carousel
-                autoPlay={true}
-                infiniteLoop={true}
-                stopOnHover={true}
-                swipeable={true}
-                emulateTouch={true}
-            >
-                {props.genres.map((genre) => {
-                    return <img src={genre.image_background} />
-                })}
-            </Carousel>
-        </div>
+                        >
+
+                            <img
+                                src={game.background_image} alt=''
+                            />
+                        </div>
+                    </div>
+                )
+            })}
+        </Carousel>
     )
 }
 

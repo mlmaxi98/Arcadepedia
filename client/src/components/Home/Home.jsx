@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import styles from './Home.module.scss'
 import { NavLink } from 'react-router-dom'
-import { getGames, getGenres, getPlatforms } from '../../Redux/actions/index'
+import { getGames } from '../../Redux/actions/index'
 import Cards from './Cards/Cards';
 import Slider from './Slider/Slider';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+
+
+const generos = ['action', 'indie', 'shooter']
 const Home = (props) => {
     const dispatch = useDispatch()
     const games = useSelector(state => state.games)
@@ -14,10 +15,16 @@ const Home = (props) => {
     //const platforms = useSelector(state => state.platforms)
 
 
-
     useEffect(() => {
 
-        dispatch(getGames('','action,indie','','name',2,3))
+        dispatch(getGames(
+            '',//nombre
+            '',//buscar por géneros
+            '',//filtrar por plataformas
+            '',//ordenar de diferentes formas
+            2,//paginado
+            null,//cantidad de resultados
+        ))
         //dispatch(getGenres())
         //dispatch(getPlatforms())
 
@@ -26,9 +33,27 @@ const Home = (props) => {
 
     return (
         <div className={props.dark ? styles.containerDark : styles.container}>
-            {games ?
-                <div className={styles.sliders}>
-                    <div className={styles.genres}>
+
+            <div className={styles.sliders}>
+                <div className={styles.one}>
+                    <div className={styles.carousel}>
+                        <Slider games={games} />
+                    </div>
+                </div>
+
+                <div className={styles.two}>
+                    <div className={styles.carousel}>
+                        <Slider games={games} />
+                    </div>
+                </div>
+
+                <div className={styles.three}>
+                    <div className={styles.carousel}>
+                        <Slider games={games} />
+                    </div>
+                </div>
+                {/* <div className={styles.games}>
+                        <span>Actions</span>
                         <Carousel
                             autoPlay={true}
                             infiniteLoop={true}
@@ -37,23 +62,35 @@ const Home = (props) => {
                             emulateTouch={true}
                             showThumbs={false}
                         >
-                            {games.map((genre) => {
-                                return <div key={genre.id} className={styles.image}>
-                                    <img src={genre.image_background} alt='' />
+                            {games.sort(() => Math.random() - 0.5).map((game) => {
+                                return <div key={game.id} className={styles.image}>
+                                    <img src={game.background_image} alt='' />
+                                </div>
+                            })}
+                        </Carousel>
+                    </div>
+                    <div className={styles.games}>
+                        <span>Actions</span>
+                        <Carousel
+                            autoPlay={false}
+                            infiniteLoop={true}
+                            stopOnHover={true}
+                            swipeable={true}
+                            emulateTouch={true}
+                            showThumbs={false}
+                        >
+                            {games.sort(() => Math.random() - 0.5).map((game) => {
+                                return <div key={game.id} className={styles.image}>
+                                    <img src={game.background_image} alt='' />
                                 </div>
                             })}
                         </Carousel>
                     </div>
                     <div className={styles.info}>
                         <span>lorem*30</span>
-                    </div>
-                </div>
-                :
-                <div className="spinner">
+                    </div> */}
 
-                </div>
-            }
-
+            </div>
         </div>
     )
 }

@@ -1,34 +1,33 @@
 .container {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(8, 11, 46, 1) 100%);
-    min-height: 90vh;
+    min-height: calc(100vh - 120px);
     text-shadow: 0 1px 0 rgb(0, 195, 255);
-    overflow-y: auto;
+    display: flex;
 
     .sliders {
         display: flex;
-        margin: auto;
-        width: 95%;
-        height: 50vh;
-        flex-direction: column;
+        width: 100%;
+        min-height: 100%;
+        flex-direction: row;
         justify-content: space-around;
 
-        .genres {
-            width: 90%;
-            margin: auto;
+        .one {
             min-height: 100%;
+            width: 33%;
+            margin: auto;
+            background-color: green;
 
-            .image {
-                background-color: aqua;
-                height: 90%;
-                width: 90%;
-                margin: auto;
-            }
+        }
 
-            /* img {
-                height: 100%;
-                width: 100%;
-            } */
+        .two {
+            @extend .one;
+            background-color: aqua;
+        }
+
+        .three {
+            @extend .one;
+            background-color: brown;
         }
 
         .info {
@@ -36,6 +35,7 @@
         }
     }
 }
+
 
 /* .barra {
     display: flex;
