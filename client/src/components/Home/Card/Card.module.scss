@@ -1,0 +1,61 @@
+$phone: 600px;
+$tablet:768px;
+$laptop:992px;
+$pc:1200px;
+$pcxl:1600px;
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+
+
+
+    .images {
+        width: 100%;
+        min-height: 60%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            border-radius: 1rem 1rem 0 0;
+            border: 0 solid transparent;
+            outline: none;
+            margin: auto;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .info {
+        /* background-image: url('https://i.pinimg.com/originals/60/c8/a6/60c8a61a4f0f648a280c7dc8156baec1.gif'); */
+        background-image: url('https://i.pinimg.com/originals/1b/74/ed/1b74ed53670b66f50f4a0a2d4c59f7f5.gif');
+        //background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/628bf030585931.562963fd67f0f.gif');
+        background-repeat: round;
+        min-height: 40%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 0 0 1rem 1rem;
+        border: 0 solid transparent;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 30%;
+        }
+
+        .platforms {
+            min-height: 70%;
+            display: flex;
+            width: 100%;
+        }
+    }
+}

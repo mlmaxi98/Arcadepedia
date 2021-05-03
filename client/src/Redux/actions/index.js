@@ -2,19 +2,27 @@ import axios from 'axios';
 import * as API from './API'
 import * as GET from './GET'
 
-export const getGames = (search, genres, platforms, ordering, page = 1, size = 15) => {
-    console.log(`${API.GAMES}&search=${search}&genres=${genres}&platforms=${platforms}&page=${page}&ordering=${ordering}&page_size=${size}`)
+export const getGames = (search, genres, platforms, ordering, dates, page = 1, size = 15) => {
     let link = `${API.GAMES}&page=${page}&page_size=${size}`
     if (search) link += `&search=${search}`;
     if (genres) link += `&genres=${genres}`;
     if (platforms) link += `&platforms=${platforms}`;
     if (ordering) link += `&ordering=${ordering}`;
+    if (dates) link += `&dates=${dates}`;
     console.log(link)
     return async (dispatch) => {
 
         const request = await axios.get(link)
         dispatch({
             type: GET.GAMES, payload: request.data.results
+        })
+    }
+}
+export const cleanGames = () => {
+    return (dispatch) => {
+        console.log('limpiando')
+        dispatch({
+            type: GET.GAMES, payload: []
         })
     }
 }
