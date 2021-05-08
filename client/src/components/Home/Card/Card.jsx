@@ -22,7 +22,7 @@ import {
 import { NavLink } from 'react-router-dom';
 SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade])
 const Card = ({ game }) => {
-    let platforms = game.platforms.map(item => {
+    let platforms = game.platforms?.map(item => {
         return item.platform
     })
     const [isShown, setIsShown] = useState(false)
