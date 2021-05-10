@@ -45,9 +45,9 @@ const Filters = (props) => {
                 genre, //buscar por géneros
                 "", //filtrar por plataformas
                 ordering, //ordenar de diferentes formas
-                "", //ordenar de diferentes formas
+                "", //buscar por fecha
                 page, //paginado
-                null //cantidad de resultados
+                12 //cantidad de resultados
             )
         );
         //dispatch(getGenres())
