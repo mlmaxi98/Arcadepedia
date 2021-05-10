@@ -26,14 +26,25 @@ export const cleanGames = () => {
         })
     }
 }
-export const getGame = (id) => {
-    return async (dispatch) => {
-        const request = await axios.get(`${API.GAME}/${id}?key=${API.KEY}`)
-        dispatch({
-            type: GET.GAME, payload: request.data
-        })
+export const getGame = (id, flag) => {
+    if (!flag) {
+
+        return async (dispatch) => {
+            const request = await axios.get(`${API.GAME}/${id}?key=${API.KEY}`)
+            console.log(request)
+            dispatch({
+                type: GET.GAME, payload: request.data
+            })
+        }
+    }
+    else {
+        return dispatch => {
+            console.log('limpiando')
+            dispatch({ type: GET.GAME, payload: {} })
+        }
     }
 }
+
 export const getGenres = () => {
     return async (dispatch) => {
         const request = await axios.get(`${API.GENRES}`)

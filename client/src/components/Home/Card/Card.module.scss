@@ -3,6 +3,8 @@ $tablet:768px;
 $laptop:992px;
 $pc:1200px;
 $pcxl:1600px;
+$morado:#FF24D5;
+$azul:#011F74;
 
 .container {
     height: 100%;
@@ -15,7 +17,7 @@ $pcxl:1600px;
     transition: 0.5s;
     border-style: solid;
     border-width: 0.25rem;
-    border-image: linear-gradient(45deg, rgb(255, 36, 213), rgb(1, 31, 116)) 1;
+    border-image: linear-gradient(45deg, $morado, $azul) 1;
 
 
     .images {
@@ -37,19 +39,13 @@ $pcxl:1600px;
     }
 
     .info {
-        /* background-image: url('https://i.pinimg.com/originals/60/c8/a6/60c8a61a4f0f648a280c7dc8156baec1.gif'); */
-        /* background-image: url('https://i.pinimg.com/originals/1b/74/ed/1b74ed53670b66f50f4a0a2d4c59f7f5.gif');
-        //background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/628bf030585931.562963fd67f0f.gif');
-        background-repeat: round; */
         background-color: rgba(0, 0, 0, 0.8);
         min-height: 40%;
         display: flex;
         justify-content: center;
         flex-direction: column;
         width: 100%;
-        //border-radius: 0 0 1rem 1rem;
-        //border: 0 solid transparent;
-        //border:0.2rem solid #832561;
+
 
 
         //transition: 0.5s;
@@ -58,36 +54,76 @@ $pcxl:1600px;
             justify-content: center;
             align-items: center;
             min-height: 30%;
+            text-align: center;
         }
 
-        .platforms {
-            min-height: 70%;
+        .available {
+            min-height: 10%;
             display: flex;
-            width: 100%;
-        }
+            width: 80%;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
 
-        .metrics {
-            width: 2rem;
-            height: 2rem;
+            .pm {
+                display: flex;
+                width: 60%;
+                flex-direction: column;
 
-            .green {
-                background-color: green;
+                .platforms {
+                    display: flex;
+                    width: 80%;
+
+                    .icon {
+                        svg path {
+                            color: $morado;
+                        }
+                    }
+                }
+
+                .metrics {
+                    min-width: 20%;
+                    display: flex;
+                    text-align: center;
+
+                    .green {
+                        min-width: 100%;
+                        background-color: green;
+                    }
+
+                    .greenyellow {
+                        min-width: 100%;
+                        background-color: greenyellow;
+                        color: gray;
+                    }
+
+                    .yellow {
+                        min-width: 100%;
+                        background-color: yellow;
+                    }
+
+                    .yellow {
+                        min-width: 100%;
+                        background-color: orange;
+                    }
+
+                    .red {
+                        min-width: 100%;
+                        background-color: red;
+                    }
+                }
             }
 
-            .greenyellow {
-                background-color: greenyellow;
-            }
+            .esrb {
+                display: flex;
+                width: 40%;
+                height: 100%;
 
-            .yellow {
-                background-color: yellow;
-            }
-
-            .yellow {
-                background-color: orange;
-            }
-
-            .red {
-                background-color: red;
+                img {
+                    margin: auto;
+                    width: 90%;
+                    height: 100%;
+                }
             }
         }
 

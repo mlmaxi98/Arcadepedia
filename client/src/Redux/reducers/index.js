@@ -21,7 +21,7 @@ function rootReducer(state = initialState, action) {
         case GET.GAME: {
             return {
                 ...state,
-                gameDetail: action.payload
+                game: action.payload
             }
         }
         case GET.GENRES: {
@@ -33,7 +33,7 @@ function rootReducer(state = initialState, action) {
         case GET.GENRE: {
             return {
                 ...state,
-                genreDetail: action.payload
+                genre: action.payload
             }
         }
 
@@ -46,7 +46,7 @@ function rootReducer(state = initialState, action) {
         case GET.PLATFORM: {
             return {
                 ...state,
-                platforms: action.payload
+                platform: action.payload
             }
         }
 

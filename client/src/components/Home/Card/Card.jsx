@@ -33,10 +33,27 @@ import {
     GiGamepadCross
 } from "react-icons/gi";
 
+import e from '../../../images/e.png'
+import ec from '../../../images/ec.png'
+import e10 from '../../../images/e10.png'
+import t from '../../../images/t.png'
+import m from '../../../images/m.png'
+import a from '../../../images/a.png'
+import rp from '../../../images/rp.png'
 
 
 import { NavLink } from 'react-router-dom';
 
+const esrb = (type) => {
+    switch (type) {
+        case 'everyone': return <img src={e} alt='' />
+        case 'everyone-10-plus': return <img src={e} alt='' />
+        case 'teen': return <img src={t} alt='' />
+        case 'mature': return <img src={m} alt='' />
+        case 'adults-only': return <img src={a} alt='' />
+        default: return <img src={rp} alt='' />
+    }
+}
 const icons = (icon) => {
 
     switch (icon) {
@@ -116,26 +133,38 @@ const Card = ({ game }) => {
                     <div className={styles.title}>
                         <span>{game.name}</span>
                     </div>
-                    <div className={styles.metrics}>
-                        {
-                            game.metacritic > 85 ?
-                                <span className={styles.green}>{game.metacritic}</span>
-                                : game.metacritic > 50 ?
-                                    <span className={styles.greenyellow}>{game.metacritic}</span>
-                                    : game.metacritic > 30 ?
-                                        <span className={styles.yellow}>{game.metacritic}</span>
-                                        : game.metacritic > 15 ?
-                                            <span className={styles.orange}>{game.metacritic}</span>
-                                            : <span className={styles.red}>{game.metacritic || 0}</span>
-                        }
+                    <div className={styles.available}>
+                        <div className={styles.pm}>
+                            <ul className={styles.platforms} >
+                                {
+                                    platforms.map((platform) => {
+                                        return <li
+                                            key={platform.id}
+                                            className={styles.icon}>
+                                            {icons(platform.slug)}
+                                        </li>
+                                    })
+                                }
+                            </ul>
+
+                            <div className={styles.metrics}>
+                                {
+                                    game.metacritic > 85 ?
+                                        <span className={styles.green}>{game.metacritic}</span>
+                                        : game.metacritic > 50 ?
+                                            <span className={styles.greenyellow}>{game.metacritic}</span>
+                                            : game.metacritic > 30 ?
+                                                <span className={styles.yellow}>{game.metacritic}</span>
+                                                : game.metacritic > 15 ?
+                                                    <span className={styles.orange}>{game.metacritic}</span>
+                                                    : <span className={styles.red}>{game.metacritic || 0}</span>
+                                }
+                            </div>
+                        </div>
+                        <div className={styles.esrb}>
+                            {esrb(game.esrb_rating.slug)}
+                        </div>
                     </div>
-                    <ul className={styles.platforms} >
-                        {
-                            platforms.map((platform) => {
-                                return <li key={platform.id}>{icons(platform.slug)}</li>
-                            })
-                        }
-                    </ul>
                 </>
                     :
                     <>
