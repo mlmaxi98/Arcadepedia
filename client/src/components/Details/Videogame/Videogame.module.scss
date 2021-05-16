@@ -1,9 +1,89 @@
-.container{
+$phone: 600px;
+$tablet:768px;
+$laptop:992px;
+$pc:1200px;
+$pcxl:1600px;
+$morado:#FF24D5;
+$azul:#011F74;
+
+.container {
     background-image: url('https://i1.wp.com/mir-s3-cdn-cf.behance.net/projects/original/08d53492880429.Y3JvcCwxMjMxLDk2MywxMzQsNzY.gif');
     background-repeat: round;
     height: calc(100vh - 120px);
     display: flex;
+
     /* flex-direction: row;
     justify-content: space-around; */
-}
+    .info {
+        background-color: blue;
+        width: 40%;
+        margin: auto;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
 
+        .name {
+            display: flex;
+            justify-content: center;
+
+            span {
+                text-align: center;
+                font-size: 2rem;
+            }
+        }
+
+        .description {
+            padding:1rem;
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+    .info::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+        background-color: rgba(8, 11, 46, 1);
+        border-radius: 1rem;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+        background-color: #777;
+        border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+        background-color: #777;
+        border: 1px solid #333333;
+    }
+
+    .info::-webkit-scrollbar-thumb:active {
+        background-color: #666;
+        border: 1px solid #333333;
+    }
+
+    .screenshoots {
+        display: flex;
+        //align-items: center;
+        width: 60%;
+        //background-color: rgba(0, 0, 0, 0.5);
+
+        .image {
+            margin: auto;
+            display: flex;
+            height: 100%;
+            width: 100%;
+
+            img {
+                margin: auto;
+                height: 90%;
+                width: 90%;
+                border-style: solid;
+                border-width: 0.25rem;
+                border-image: linear-gradient(45deg, $morado, $azul) 1;
+            }
+        }
+    }
+}

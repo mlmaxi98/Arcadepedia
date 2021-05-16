@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import styles from './Card.module.scss'
-//import "react-responsive-carousel/lib/styles/carousel.min.css";
-//import { Carousel } from 'react-responsive-carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import StarIcon from "@material-ui/icons/Star";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SwiperCore, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper'
 import "swiper/swiper.scss";
 import "swiper/components/effect-fade/effect-fade.scss"
@@ -25,24 +27,13 @@ import {
     SiWii,
 
 } from "react-icons/si";
-import {
-    RiMacbookLine,
-    RiGamepadFill,
-} from "react-icons/ri";
-import {
-    GiGamepadCross
-} from "react-icons/gi";
-
+import { RiMacbookLine, RiGamepadFill } from "react-icons/ri";
+import { GiGamepadCross } from "react-icons/gi";
 import e from '../../../images/e.png'
-import ec from '../../../images/ec.png'
-import e10 from '../../../images/e10.png'
 import t from '../../../images/t.png'
 import m from '../../../images/m.png'
 import a from '../../../images/a.png'
 import rp from '../../../images/rp.png'
-
-
-import { NavLink } from 'react-router-dom';
 
 const esrb = (type) => {
     switch (type) {
@@ -57,7 +48,7 @@ const esrb = (type) => {
 const icons = (icon) => {
 
     switch (icon) {
-        case 'pc': return <SiSteam />;
+        case 'pc': return <SiWindows />;
         case 'playstation5': return <SiPlaystation />;
         case 'playstation4': return <SiPlaystation />;
         case 'xbox-one': return <SiXbox />;
@@ -84,7 +75,6 @@ const icons = (icon) => {
         case 'game-boy-advance': return <SiNintendo />;
         case 'windows': return <SiWindows />;
         default: return <RiGamepadFill />;
-
     }
 }
 
@@ -93,6 +83,8 @@ const Card = ({ game }) => {
     let platforms = game.platforms?.map(item => {
         return item.platform
     })
+    let score = Math.trunc(game.rating)
+    let long = game.platforms.length - 4
     const [isShown, setIsShown] = useState(false)
 
     return (
@@ -137,16 +129,43 @@ const Card = ({ game }) => {
                         <div className={styles.pm}>
                             <ul className={styles.platforms} >
                                 {
-                                    platforms.map((platform) => {
-                                        return <li
-                                            key={platform.id}
-                                            className={styles.icon}>
-                                            {icons(platform.slug)}
-                                        </li>
-                                    })
+                                    platforms.length > 4 ?
+                                        <>
+                                            {platforms.sort(() => Math.random() - 0.5).slice(0, 4).map((platform) => {
+                                                return <li
+                                                    key={platform.id}
+                                                    className={styles.icon}>
+                                                    {icons(platform.slug)}
+                                                </li>
+                                            })}
+                                            <li
+                                                className={styles.long}
+                                            >
+                                                <span>
+                                                    {long}+
+                                                </span>
+                                            </li>
+                                        </>
+                                        :
+                                        platforms.sort(() => Math.random() - 0.5).map((platform) => {
+                                            return <li
+                                                key={platform.id}
+                                                className={styles.icon}>
+                                                {icons(platform.slug)}
+                                            </li>
+                                        })
                                 }
                             </ul>
-
+                            <div className={styles.rating}>
+                                <span>
+                                    {[...Array(score)].map((i) => {
+                                        return <StarIcon key={i} style={{ fontSize: "1rem" }} />;
+                                    })}
+                                    {[...Array(5 - score)].map((ii) => {
+                                        return <StarBorderIcon key={ii} style={{ fontSize: "1rem" }} />;
+                                    })}
+                                </span>
+                            </div>
                             <div className={styles.metrics}>
                                 {
                                     game.metacritic > 85 ?
@@ -162,7 +181,7 @@ const Card = ({ game }) => {
                             </div>
                         </div>
                         <div className={styles.esrb}>
-                            {esrb(game.esrb_rating.slug)}
+                            {esrb(game.esrb_rating?.slug || 'rp')}
                         </div>
                     </div>
                 </>

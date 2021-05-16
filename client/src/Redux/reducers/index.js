@@ -3,10 +3,12 @@ import * as GET from '../actions/GET'
 const initialState = {
     games: [],
     game: {},
+    game_screens: [],
     genres: [],
     genre: {},
     platforms: [],
     platform: {},
+    count: 0,
     dark: false,
 }
 function rootReducer(state = initialState, action) {
@@ -22,6 +24,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 game: action.payload
+            }
+        }
+        case GET.GAME_SCREENS: {
+            return {
+                ...state,
+                game_screens: action.payload
             }
         }
         case GET.GENRES: {
@@ -47,6 +55,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 platform: action.payload
+            }
+        }
+        case GET.COUNT: {
+            return {
+                ...state,
+                count: action.payload
             }
         }
 

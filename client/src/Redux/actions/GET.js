@@ -1,4 +1,6 @@
 export const GAME = 'GAME'
+export const GAME_SCREENS = 'GAME_SCREENS'
+export const COUNT = 'COUNT'
 export const GENRE = 'GENRE'
 export const PLATFORM = 'PLATFORM'
 export const GAMES = 'GAMES'

@@ -16,6 +16,9 @@ export const getGames = (search, genres, platforms, ordering, dates, page = 1, s
         dispatch({
             type: GET.GAMES, payload: request.data.results
         })
+        dispatch({
+            type: GET.COUNT, payload: request.data.count
+        })
     }
 }
 export const cleanGames = () => {
@@ -24,6 +27,9 @@ export const cleanGames = () => {
         dispatch({
             type: GET.GAMES, payload: []
         })
+        dispatch({
+            type: GET.COUNT, payload: 0
+        })
     }
 }
 export const getGame = (id, flag) => {
@@ -31,9 +37,13 @@ export const getGame = (id, flag) => {
 
         return async (dispatch) => {
             const request = await axios.get(`${API.GAME}/${id}?key=${API.KEY}`)
+            const screenshots = await axios.get(`${API.GAME}/${id}/screenshots?key=${API.KEY}`)
             console.log(request)
             dispatch({
                 type: GET.GAME, payload: request.data
+            })
+            dispatch({
+                type: GET.GAME_SCREENS, payload: screenshots.data.results
             })
         }
     }
@@ -50,6 +60,9 @@ export const getGenres = () => {
         const request = await axios.get(`${API.GENRES}`)
         dispatch({
             type: GET.GENRES, payload: request.data.results
+        })
+        dispatch({
+            type: GET.COUNT, payload: request.data.count
         })
     }
 }
@@ -68,6 +81,9 @@ export const getPlatforms = () => {
         const request = await axios.get(`${API.PLATFORMS}`)
         dispatch({
             type: GET.PLATFORMS, payload: request.data.results
+        })
+        dispatch({
+            type: GET.COUNT, payload: request.data.count
         })
     }
 }

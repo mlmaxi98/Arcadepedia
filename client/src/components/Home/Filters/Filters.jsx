@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Filters.module.scss'
 import { getGames, cleanGames } from "../../../Redux/actions/index";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 const Filters = (props) => {
     const dispatch = useDispatch();
+    const count = useSelector(state => state.count)
     const [text, setText] = useState('');
     const [search, setSearch] = useState('');
     const [genre, setGenre] = useState('')
     const [ordering, setOrdering] = useState('')
     const [page, setPage] = useState(1)
-    const nextPage = () => { setPage(page + 1) }
+    const nextPage = () => {
+        //alert(Math.ceil(count / 12))
+        Math.ceil(count / 12) > page && setPage(page + 1)
+    }
     const prevPage = () => { page > 1 && setPage(page - 1) }
     const handleText = (e) => { setText(e.target.value) }
     const handleSearch = () => { setSearch(text) }
@@ -99,6 +103,7 @@ const Filters = (props) => {
                     <button onClick={prevPage}>
                         <ArrowBackIcon />
                     </button>
+                    <input type='text' value={page} disabled />
                     <button onClick={nextPage}>
                         <ArrowForwardIcon />
                     </button>

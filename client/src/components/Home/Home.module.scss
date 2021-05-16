@@ -1,24 +1,50 @@
+$phone: 600px;
+$tablet:768px;
+$laptop:992px;
+$pc:1200px;
+$pcxl:1600px;
+$morado:#FF24D5;
+$azul:#011F74;
+
 .container {
 
     background-image: url('https://i1.wp.com/mir-s3-cdn-cf.behance.net/projects/original/08d53492880429.Y3JvcCwxMjMxLDk2MywxMzQsNzY.gif');
     background-repeat: round;
     display: flex;
     height: calc(100vh - 120px);
+
     //cursor: url(../../images/cursorD.png), default;
+    @media screen and (max-width: $tablet) {
+        min-height:75%;
+        flex-direction: column;
+    }
 
     .sliders {
         background-color: rgba(0, 0, 0, 0.5);
         overflow-y: auto;
         display: flex;
-        width: 85%;
+        width: 80%;
         height: 100%;
         flex-direction: row;
         justify-content: space-around;
         flex-wrap: wrap;
-
+        @media screen and (max-width: $tablet) {
+            width: 100%;
+            //min-height: 100%;
+            //overflow:unset;
+        }
         .card {
             height: 20rem;
             width: 20%;
+
+            @media screen and (max-width: $pc) {
+                width: 30%;
+            }
+
+            @media screen and (max-width: $laptop) {
+                width: 40%;
+            }
+
             margin: 2rem 0.25rem;
         }
 

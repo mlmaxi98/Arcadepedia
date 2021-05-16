@@ -1,12 +1,23 @@
+$phone: 600px;
+$tablet:768px;
+$laptop:992px;
+$pc:1200px;
+$pcxl:1600px;
+$morado:#FF24D5;
+$azul:#011F74;
+
 .container {
-    width: 15%;
+    width: 20%;
     position: sticky;
     left: 0;
     display: flex;
     flex-direction: column;
-    /* background-image: url('https://images1.the-dots.com/641821/ps20.gif?p=projectImageFullJpg');
-    background-repeat: repeat-y; */
     background-color: rgba(0, 0, 0, 0.5);
+    @media screen and (max-width: $tablet) {
+        height:25%;
+        width: 100%;
+        flex-direction: row;
+    }
 
     .filters {
         display: flex;
@@ -38,7 +49,10 @@
             margin: 1rem auto;
             text-align: center;
             border-radius: 0.5rem;
-
+            @media screen and (max-width: $tablet) {
+                margin: 0 auto;
+            }
+            
             option {
                 border-radius: 0.5rem;
                 text-align: center;
@@ -47,7 +61,7 @@
                 color: black;
             }
         }
-
+        
         .search {
             height: 2rem;
             margin: 1rem auto;
@@ -55,7 +69,10 @@
             display: flex;
             margin: 0 auto;
             margin-bottom: 1rem;
-
+            @media screen and (max-width: $tablet) {
+                margin-bottom:0;
+            }
+            
             input {
                 width: calc(100% - 2rem);
                 background-color: rgba(0, 0, 0, 0.5);
@@ -104,12 +121,20 @@
                 border-radius: 0.5rem;
                 transition: 0.5s;
                 cursor: pointer;
-
+                
                 &:hover {
                     background-color: rgba(0, 0, 0, 0.5);
-
+                    
                 }
             }
+            input{
+                width:2rem;
+                border: 0.25rem solid rgb(255, 36, 213);
+                border-radius: 0.5rem;
+                background-color: rgba(0, 0, 0, 0.5);
+                text-align: center;
+            }
+
         }
     }
 
