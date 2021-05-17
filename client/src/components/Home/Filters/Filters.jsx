@@ -82,13 +82,16 @@ const Filters = (props) => {
                             onChange={(e) => { setOrdering(e.target.value) }}
                         >
                             <option value="">Order by...</option>
-                            <option value="name"> Name</option>
-                            <option value="released"> Released</option>
-                            <option value="added"> Added</option>
-                            <option value="created"> Created</option>
-                            <option value="updated"> Updated</option>
-                            <option value="rating"> Rating</option>
-                            <option value="metacritic"> Metacritic</option>
+                            <option value="name"> Name ↑</option>
+                            <option value="-name"> Name ↓</option>
+                            <option value="released"> Released ↑</option>
+                            <option value="-released"> Released ↓</option>
+                            <option value="created"> Created ↑ </option>
+                            <option value="created"> Created ↓</option>
+                            <option value="rating"> Rating ↑</option>
+                            <option value="rating"> Rating ↓</option>
+                            <option value="metacritic"> Metacritic ↑</option>
+                            <option value="metacritic"> Metacritic ↓</option>
                         </select>
                         <select value={genre}
                             onChange={(e) => { setGenre(e.target.value) }}
