@@ -14,7 +14,6 @@ const Filters = (props) => {
     const [ordering, setOrdering] = useState('')
     const [page, setPage] = useState(1)
     const nextPage = () => {
-        //alert(Math.ceil(count / 12))
         Math.ceil(count / 12) > page && setPage(page + 1)
     }
     const prevPage = () => { page > 1 && setPage(page - 1) }
@@ -54,59 +53,55 @@ const Filters = (props) => {
                 12 //cantidad de resultados
             )
         );
-        //dispatch(getGenres())
-        //dispatch(getPlatforms())
     }, [dispatch, search, ordering, genre, page]);
     return (
         <div className={props.dark ? styles.containerDark : styles.container}>
             <div className={styles.filters}>
                 <div className={styles.title}>
-                    <span>Arcades</span>
+                    <span>Arcadepedia</span>
                 </div>
+                <div className={styles.filter}>
+                    <div className={styles.games}>
+                        <div className={styles.search}>
+                            <input type='search' value={text} onChange={handleText} placeholder='Search...' />
+                            <button onClick={handleSearch}> <SearchIcon style={{ fontSize: '1.5rem' }} /> </button>
+                        </div>
+                        <div className={styles.pages}>
+                            <button onClick={prevPage}>
+                                <ArrowBackIcon />
+                            </button>
+                            <input type='text' value={page} disabled />
+                            <button onClick={nextPage}>
+                                <ArrowForwardIcon />
+                            </button>
+                        </div>
+                    </div>
+                    <div className={styles.selects}>
 
-                <div className={styles.search}>
-                    <input type='search' value={text} onChange={handleText} placeholder='Search...' />
-                    <button onClick={handleSearch}> <SearchIcon style={{ fontSize: '1.5rem' }} /> </button>
-                </div>
-                <select value={ordering}
-                    onChange={(e) => { setOrdering(e.target.value) }}
-                >
-                    <option value="">Order by...</option>
-                    <option value="name"> Name</option>
-                    <option value="released"> Released</option>
-                    <option value="added"> Added</option>
-                    <option value="created"> Created</option>
-                    <option value="updated"> Updated</option>
-                    <option value="rating"> Rating</option>
-                    <option value="metacritic"> Metacritic</option>
-                </select>
-                <select value={genre}
-                    onChange={(e) => { setGenre(e.target.value) }}
-                >
-                    <option value="">Filter by Genre...</option>
-                    {
-                        genres.map((genre) => {
-                            return <option value={genre.id}>{genre.name}</option>
-                        })
-                    }
-                </select>
-                {/* <select value={ordering} onChange={(e) => { setOrdering(e.target.value) }} >
-                    <option value=""></option>
-                    <option value="name"> Name </option>
-                    <option value="released"> Released </option>
-                    <option value="added"> Added </option>
-                    <option value="rating">Rating </option>
-                </select> */}
+                        <select value={ordering}
+                            onChange={(e) => { setOrdering(e.target.value) }}
+                        >
+                            <option value="">Order by...</option>
+                            <option value="name"> Name</option>
+                            <option value="released"> Released</option>
+                            <option value="added"> Added</option>
+                            <option value="created"> Created</option>
+                            <option value="updated"> Updated</option>
+                            <option value="rating"> Rating</option>
+                            <option value="metacritic"> Metacritic</option>
+                        </select>
+                        <select value={genre}
+                            onChange={(e) => { setGenre(e.target.value) }}
+                        >
+                            <option value="">Filter by...</option>
+                            {
+                                genres.map((genre) => {
+                                    return <option value={genre.id}>{genre.name}</option>
+                                })
+                            }
+                        </select>
+                    </div>
 
-                {/* <button onClick={setOrdering(`-${ordering}`)} ></button> */}
-                <div className={styles.pages}>
-                    <button onClick={prevPage}>
-                        <ArrowBackIcon />
-                    </button>
-                    <input type='text' value={page} disabled />
-                    <button onClick={nextPage}>
-                        <ArrowForwardIcon />
-                    </button>
                 </div>
             </div>
 

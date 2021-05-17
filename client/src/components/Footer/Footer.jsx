@@ -1,20 +1,23 @@
 import React from "react";
 import styles from './Footer.module.scss'
-import LogoF from '../../images/logoF.png'
-
+import { SiFacebook, SiInstagram, SiGithub, SiLinkedin } from "react-icons/si";
 const Footer = (props) => {
-
 
     return <div className={props.dark ? styles.containerDark : styles.container}>
         <div className={styles.footer}>
+            <a className='icon' href='https://github.com/mlmaxi98'>
+                <SiGithub />
+            </a>
+            <a className='icon' href='https://www.linkedin.com/in/joaquin-cardozo/'>
+                <SiLinkedin />
+            </a>
             <a className='icon' href='https://www.facebook.com/mikuxlyuuzaki/'>
-                <img className='icono' src={LogoF} alt='#'></img>
+                <SiFacebook />
             </a>
             <a className='icon' href='https://www.instagram.com/mlmaxi98/?hl=es-la'>
-                <img className='icono' src='https://facebookbrand.com/wp-content/uploads/2019/10/Copy-of-instagram.svg' alt='#'></img>
+                <SiInstagram />
             </a>
         </div>
-
     </div>
 }
 export default Footer;

@@ -3,19 +3,16 @@ import styles from './Navbar.module.scss'
 import Logo from '../../images/logo2.png'
 import { NavLink } from 'react-router-dom'
 import HomeIcon from '@material-ui/icons/Home';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-//import SearchBar from './SearchBar'
 const Navbar = (props) => {
 
     return <div className={props.dark ? styles.containerDark : styles.container}>
 
         <div className={styles.menu}>
             <div className={styles.logo}>
-                <NavLink to={'/home'} className={styles.logo}>
+                <NavLink to={'/home'} >
                     <img src={Logo} alt='logo'></img>
                 </NavLink>
             </div>
-
             <ul className={styles.links}>
                 <li>
                     <NavLink to={'/home'}>

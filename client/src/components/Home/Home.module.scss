@@ -13,9 +13,8 @@ $azul:#011F74;
     display: flex;
     height: calc(100vh - 120px);
 
-    //cursor: url(../../images/cursorD.png), default;
     @media screen and (max-width: $tablet) {
-        min-height:75%;
+        min-height: 70%;
         flex-direction: column;
     }
 
@@ -28,24 +27,27 @@ $azul:#011F74;
         flex-direction: row;
         justify-content: space-around;
         flex-wrap: wrap;
+
         @media screen and (max-width: $tablet) {
             width: 100%;
-            //min-height: 100%;
-            //overflow:unset;
+
         }
+
         .card {
             height: 20rem;
             width: 20%;
-
+            margin: 2rem 0.25rem;
+            
             @media screen and (max-width: $pc) {
                 width: 30%;
             }
-
+            
             @media screen and (max-width: $laptop) {
-                width: 40%;
+                height: 70%;
+                width: 45%;
+                margin: 0.25rem;
             }
 
-            margin: 2rem 0.25rem;
         }
 
         .info {

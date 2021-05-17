@@ -25,7 +25,9 @@ $azul:#011F74;
         min-height: 60%;
         display: flex;
         justify-content: center;
-
+        @media screen and (max-width: $pc) {
+            min-height: 50%;
+        }
         img {
             outline: none;
             margin: auto;
@@ -38,8 +40,11 @@ $azul:#011F74;
     .info {
         background-color: rgba(0, 0, 0, 0.8);
         min-height: 40%;
+        @media screen and (max-width: $pc) {
+            min-height: 50%;
+        }
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         flex-direction: column;
         width: 100%;
 
@@ -47,12 +52,18 @@ $azul:#011F74;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 30%;
+            min-height: 40%;
+            @media screen and (max-width: $pc) {
+                min-height: 60%;
+            }
             text-align: center;
         }
 
         .available {
-            min-height: 10%;
+            min-height:60%;
+            @media screen and (max-width: $pc) {
+                min-height: 40%;
+            }
             display: flex;
             width: 90%;
             justify-content: space-between;
@@ -63,7 +74,9 @@ $azul:#011F74;
                 display: flex;
                 width: 80%;
                 flex-direction: column;
-
+                @media screen and (max-width: $pc) {
+                    width: 100%;
+                }
                 .platforms {
                     display: flex;
                     width: 80%;
@@ -94,38 +107,42 @@ $azul:#011F74;
                 .scores {
                     display: flex;
                     justify-content: space-between;
-
+                    flex-direction: column;
                     .metrics {
                         width: 30%;
                         display: flex;
                         text-align: center;
-
+                        @media screen and (max-width: $pc) {
+                            display:none;
+                            visibility: hidden;
+                        }
                         .green {
                             min-width: 100%;
-                            border: 0.2rem solid green;
+                            border: 0.1rem solid green;
                             color: green;
                         }
-
+                        
                         .greenyellow {
                             min-width: 100%;
-                            background-color: greenyellow;
-                            color: gray;
+                            border: 0.1rem solid greenyellow;
+                            color: greenyellow;
+                        }
+                        
+                        .yellow {
+                            min-width: 100%;
+                            border: 0.1rem solid yellow;
+                            color: yellow;
                         }
 
                         .yellow {
                             min-width: 100%;
-                            background-color: yellow;
-                        }
-
-                        .yellow {
-                            min-width: 100%;
-                            border: 0.2rem solid orange;
+                            border: 0.1rem solid orange;
                             color: orange;
                         }
 
                         .red {
                             min-width: 100%;
-                            border: 0.2rem solid red;
+                            border: 0.1rem solid red;
                             font-weight: bolder;
                             color: red;
                         }
@@ -133,6 +150,9 @@ $azul:#011F74;
 
                     .rating {
                         width: 70%;
+                        @media screen and (max-width: $pc) {
+                            width: 90%;
+                        }
                         display: flex;
                         align-items: center;
 
@@ -149,7 +169,11 @@ $azul:#011F74;
                 display: flex;
                 margin: auto;
                 width: 20%;
-                height: 100%;
+                //height: 100%;
+                @media screen and (max-width: $pc) {
+                    display:none;
+                    visibility: hidden;
+                }
 
                 img {
                     margin: auto;

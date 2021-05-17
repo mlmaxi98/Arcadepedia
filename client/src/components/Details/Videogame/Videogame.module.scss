@@ -12,20 +12,35 @@ $azul:#011F74;
     height: calc(100vh - 120px);
     display: flex;
 
-    /* flex-direction: row;
-    justify-content: space-around; */
+    @media screen and (max-width: $tablet) {
+        flex-direction: column;
+    }
+
     .info {
-        background-color: blue;
         width: 40%;
+
+        @media screen and (max-width: $tablet) {
+            width: 100%;
+        }
+
         margin: auto;
         height: 90%;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-style: solid;
+        border-width: 0.25rem;
+        border-image: linear-gradient(45deg, $morado, $azul) 1;
+
+        @media screen and (max-width: $tablet) {
+            border: none
+        }
 
         .name {
             display: flex;
             justify-content: center;
+            margin: 1rem 0;
 
             span {
                 text-align: center;
@@ -34,12 +49,98 @@ $azul:#011F74;
         }
 
         .description {
-            padding:1rem;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+
+            span {
+                font-size: 1.25rem;
+                margin-bottom: 0.25rem;
+            }
+
             p {
                 font-size: 1rem;
             }
         }
+
+        .data {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+
+            @media screen and (max-width: $tablet) {
+                //flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .platforms {
+                display: flex;
+                flex-direction: column;
+
+                ul {
+                    @extend .platforms;
+                    justify-content: space-between;
+                }
+            }
+
+            .genres {
+                flex-direction: column;
+                display: flex;
+
+                ul {
+                    flex-direction: column;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+
+            .esrb {
+                display: flex;
+                //height: 100%;
+                width: 20%;
+
+                @media screen and (max-width: $tablet) {
+                    margin-top:1rem;
+                }
+                img {
+                    margin: auto;
+                    width: 90%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 1rem;
+
+            span {
+                text-align: center;
+                margin-bottom: 0.25rem;
+            }
+
+            a {
+                text-align: center;
+
+                p {
+
+                    @media screen and (max-width: $tablet) {
+                        text-align: left;
+                        width: 90%;
+                        margin: 0 auto;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+
     }
+
     .info::-webkit-scrollbar {
         width: 8px;
     }
@@ -66,9 +167,12 @@ $azul:#011F74;
 
     .screenshoots {
         display: flex;
-        //align-items: center;
-        width: 60%;
-        //background-color: rgba(0, 0, 0, 0.5);
+        width: 55%;
+
+        @media screen and (max-width: $tablet) {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
         .image {
             margin: auto;
@@ -76,13 +180,21 @@ $azul:#011F74;
             height: 100%;
             width: 100%;
 
+            @media screen and (max-width: $tablet) {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
             img {
                 margin: auto;
                 height: 90%;
-                width: 90%;
+                width: 95%;
                 border-style: solid;
                 border-width: 0.25rem;
                 border-image: linear-gradient(45deg, $morado, $azul) 1;
+
+                @media screen and (max-width: $tablet) {
+                    border: none;
+                }
             }
         }
     }

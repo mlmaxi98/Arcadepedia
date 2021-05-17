@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Videogame.module.scss'
 import { getGame } from '../../../Redux/actions/index'
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ import "swiper/swiper.scss";
 import "swiper/components/effect-fade/effect-fade.scss"
 import "swiper/components/navigation/navigation.scss"
 import "swiper/components/pagination/pagination.scss"
-
+import { icons, esrb } from '../../Home/Card/Card'
 SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade])
 const Videogame = (props) => {
     const dispatch = useDispatch();
@@ -65,9 +65,58 @@ const Videogame = (props) => {
                             <div className={styles.name}>
                                 <span>{game.name}</span>
                             </div>
+
                             <div className={styles.description}>
+                                <span>About:</span>
                                 <p>{game.description_raw}</p>
                             </div>
+
+                            <div className={styles.data}>
+                                <div className={styles.platforms}>
+                                    <span>Platforms:</span>
+                                    <ul>
+                                        {game.platforms.map(item => {
+                                            return <li>
+                                                {icons(item.platform.slug)} <span>
+                                                    {item.platform.name}
+                                                </span>
+                                            </li>
+                                        })}
+                                    </ul>
+                                </div>
+                                <div className={styles.genres} >
+                                    <span>Genres:</span>
+                                    <ul>
+                                        {game.genres.map(item => {
+                                            return <li>
+                                                <span>
+                                                    {item.name}
+                                                </span>
+                                            </li>
+                                        })}
+                                    </ul>
+                                </div>
+                                <div className={styles.esrb}>
+                                    {esrb(game.esrb_rating?.slug || 'rp')}
+                                </div>
+                            </div>
+                            {game.website && <div className={styles.links}>
+                                <span>Websites:</span>
+
+                                {game.website && <a href={game.website}>
+                                    <p>
+                                        {game.website}
+                                    </p>
+                                </a>}
+                                {game.reddit_url && <a href={game.reddit_url}>
+                                    <p>
+                                        {game.reddit_url}
+                                    </p>
+                                </a>}
+
+
+                            </div>}
+
                         </div>
                     </>
             }

@@ -4,7 +4,6 @@ import styles from './Card.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SwiperCore, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper'
 import "swiper/swiper.scss";
 import "swiper/components/effect-fade/effect-fade.scss"
@@ -13,7 +12,6 @@ import "swiper/components/pagination/pagination.scss"
 import {
     SiPlaystationvita,
     SiPlaystation,
-    SiSteam,
     SiXbox,
     SiWindows,
     SiAndroid,
@@ -35,7 +33,7 @@ import m from '../../../images/m.png'
 import a from '../../../images/a.png'
 import rp from '../../../images/rp.png'
 
-const esrb = (type) => {
+export const esrb = (type) => {
     switch (type) {
         case 'everyone': return <img src={e} alt='' />
         case 'everyone-10-plus': return <img src={e} alt='' />
@@ -45,7 +43,7 @@ const esrb = (type) => {
         default: return <img src={rp} alt='' />
     }
 }
-const icons = (icon) => {
+export const icons = (icon) => {
 
     switch (icon) {
         case 'pc': return <SiWindows />;
@@ -84,7 +82,7 @@ const Card = ({ game }) => {
         return item.platform
     })
     let score = Math.trunc(game.rating)
-    let long = game.platforms.length - 4
+    let long = game.platforms.length - 3
     const [isShown, setIsShown] = useState(false)
 
     return (
@@ -123,15 +121,18 @@ const Card = ({ game }) => {
 
                 {!isShown ? <>
                     <div className={styles.title}>
-                        <span>{game.name}</span>
+
+                        <NavLink to={`/home/videogame/${game.id}`}>
+                            <span>{game.name}</span>
+                        </NavLink>
                     </div>
                     <div className={styles.available}>
                         <div className={styles.pm}>
                             <ul className={styles.platforms} >
                                 {
-                                    platforms.length > 4 ?
+                                    platforms.length > 3 ?
                                         <>
-                                            {platforms.sort(() => Math.random() - 0.5).slice(0, 4).map((platform) => {
+                                            {platforms.sort(() => Math.random() - 0.5).slice(0, 3).map((platform) => {
                                                 return <li
                                                     key={platform.id}
                                                     className={styles.icon}>
@@ -156,28 +157,31 @@ const Card = ({ game }) => {
                                         })
                                 }
                             </ul>
-                            <div className={styles.rating}>
-                                <span>
-                                    {[...Array(score)].map((i) => {
-                                        return <StarIcon key={i} style={{ fontSize: "1rem" }} />;
-                                    })}
-                                    {[...Array(5 - score)].map((ii) => {
-                                        return <StarBorderIcon key={ii} style={{ fontSize: "1rem" }} />;
-                                    })}
-                                </span>
-                            </div>
-                            <div className={styles.metrics}>
-                                {
-                                    game.metacritic > 85 ?
-                                        <span className={styles.green}>{game.metacritic}</span>
-                                        : game.metacritic > 50 ?
-                                            <span className={styles.greenyellow}>{game.metacritic}</span>
-                                            : game.metacritic > 30 ?
-                                                <span className={styles.yellow}>{game.metacritic}</span>
-                                                : game.metacritic > 15 ?
-                                                    <span className={styles.orange}>{game.metacritic}</span>
-                                                    : <span className={styles.red}>{game.metacritic || 0}</span>
-                                }
+
+                            <div className={styles.scores}>
+                                <div className={styles.rating}>
+                                    <span>
+                                        {[...Array(score)].map((i) => {
+                                            return <StarIcon key={i} style={{ fontSize: "1rem" }} />;
+                                        })}
+                                        {[...Array(5 - score)].map((ii) => {
+                                            return <StarBorderIcon key={ii} style={{ fontSize: "1rem" }} />;
+                                        })}
+                                    </span>
+                                </div>
+                                <div className={styles.metrics}>
+                                    {
+                                        game.metacritic > 85 ?
+                                            <span className={styles.green}>{game.metacritic}</span>
+                                            : game.metacritic > 50 ?
+                                                <span className={styles.greenyellow}>{game.metacritic}</span>
+                                                : game.metacritic > 30 ?
+                                                    <span className={styles.yellow}>{game.metacritic}</span>
+                                                    : game.metacritic > 15 ?
+                                                        <span className={styles.orange}>{game.metacritic}</span>
+                                                        : <span className={styles.red}>{game.metacritic || 0}</span>
+                                    }
+                                </div>
                             </div>
                         </div>
                         <div className={styles.esrb}>
