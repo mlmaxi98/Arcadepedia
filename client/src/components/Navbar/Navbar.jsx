@@ -19,7 +19,7 @@ const Navbar = () => {
                             <HomeIcon style={{ fontSize: "1.5rem" }} />
                         </NavLink>
                     </li>
-                    <li><NavLink to={"/"}>SALIR</NavLink></li>
+                    <li><NavLink to={"/"}>EXIT</NavLink></li>
                 </ul>
             </div>
         </div>

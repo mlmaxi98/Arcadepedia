@@ -9,6 +9,11 @@ $azul:#011F74;
 .container {
 
     background-image: url('https://i1.wp.com/mir-s3-cdn-cf.behance.net/projects/original/08d53492880429.Y3JvcCwxMjMxLDk2MywxMzQsNzY.gif');
+
+    @media screen and (max-width: $tablet) {
+        background-image: url('https://i.pinimg.com/originals/8a/21/c0/8a21c069f217aeded9101b119b2251d3.gif');
+    }
+
     background-repeat: round;
     display: flex;
     height: calc(100vh - 120px);
@@ -37,11 +42,11 @@ $azul:#011F74;
             height: 20rem;
             width: 20%;
             margin: 2rem 0.25rem;
-            
+
             @media screen and (max-width: $pc) {
                 width: 30%;
             }
-            
+
             @media screen and (max-width: $laptop) {
                 height: 70%;
                 width: 45%;
