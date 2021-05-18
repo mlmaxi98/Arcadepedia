@@ -95,11 +95,3 @@ export const getPlatformDetails = (id) => {
         })
     }
 }
-export const setDarkMode = (dark) => {
-    return function (dispatch) {
-        dispatch({
-            type: GET.DARK,
-            payload: dark,
-        });
-    };
-};

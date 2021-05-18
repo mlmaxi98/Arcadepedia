@@ -5,8 +5,8 @@ import Home from './components/Home/Home.jsx'
 //import Genre from './components/Details/Genre/Genre'
 import Footer from './components/Footer/Footer.jsx'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
-import styles from './App.scss'
 import Videogame from './components/Details/Videogame/Videogame.jsx'
+import styles from './App.scss'
 const App = () => {
 
   return (

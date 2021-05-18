@@ -8,7 +8,7 @@ const LandingPage = () => {
             <div className={styles.title}>
                 <span>ARCADEPEDIA</span>
             </div>
-            <NavLink to={'/home'} className={styles.start}>
+            <NavLink to={"/home"} className={styles.start}>
                 <span>START</span>
             </NavLink>
         </div>

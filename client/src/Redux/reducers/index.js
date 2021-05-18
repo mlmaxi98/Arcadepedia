@@ -9,7 +9,6 @@ const initialState = {
     platforms: [],
     platform: {},
     count: 0,
-    dark: false,
 }
 function rootReducer(state = initialState, action) {
     switch (action.type) {
@@ -63,13 +62,6 @@ function rootReducer(state = initialState, action) {
                 count: action.payload
             }
         }
-
-        case GET.DARK:
-            return {
-                ...state,
-                dark: action.payload,
-            };
-
         default: return state
     }
 }

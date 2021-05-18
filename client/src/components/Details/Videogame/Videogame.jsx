@@ -6,11 +6,11 @@ import styles from './Videogame.module.scss'
 import Loading from '../../Loading/Loading'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper'
+import { esrb, icons } from '../../Home/Card/Consts'
 import "swiper/swiper.scss";
 import "swiper/components/effect-fade/effect-fade.scss"
 import "swiper/components/navigation/navigation.scss"
 import "swiper/components/pagination/pagination.scss"
-import { icons, esrb } from '../../Home/Card/Card'
 SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade])
 const Videogame = (props) => {
     const dispatch = useDispatch();
@@ -33,94 +33,89 @@ const Videogame = (props) => {
                     :
                     <>
                         <div className={styles.screenshoots}>
-                            {screens.length > 0 ?
-                                <Swiper
-                                    navigation={false}
-                                    pagination={false}
-                                    autoHeight={false}
-                                    loop={true}
-                                    effect={'fade'}
-                                    grabCursor={true}
-                                    autoplay={{
-                                        "delay": 2500,
-                                        "disableOnInteraction": false
-                                    }}
-                                >
-                                    {
-                                        screens.map((screenshot) => {
-                                            return (
-                                                <SwiperSlide
-                                                    className={styles.image}
-                                                    key={screenshot.id}>
-                                                    <img src={screenshot.image} alt='' />
-                                                </SwiperSlide>
-                                            );
-                                        })
-                                    }
-                                </Swiper>
-                                : <img src='https://i.pinimg.com/originals/bf/60/01/bf60013dc14249ca5324bfcd9a9c7782.gif' alt='' />
+                            {
+                                screens.length > 0 ?
+                                    <Swiper
+                                        navigation={false}
+                                        pagination={false}
+                                        autoHeight={false}
+                                        loop
+                                        effect="fade"
+                                        grabCursor
+                                        autoplay={{
+                                            "delay": 2500,
+                                            "disableOnInteraction": false
+                                        }}
+                                    >
+                                        {
+                                            screens.map((screenshot) => {
+                                                return (
+                                                    <SwiperSlide
+                                                        className={styles.image}
+                                                        key={screenshot.id}>
+                                                        <img src={screenshot.image} alt="" />
+                                                    </SwiperSlide>
+                                                );
+                                            })
+                                        }
+                                    </Swiper>
+                                    :
+                                    <img src="https://i.pinimg.com/originals/bf/60/01/bf60013dc14249ca5324bfcd9a9c7782.gif" alt="" />
                             }
                         </div>
                         <div className={styles.info}>
                             <div className={styles.name}>
                                 <span>{game.name}</span>
                             </div>
-
                             <div className={styles.description}>
                                 <span>About:</span>
                                 <p>{game.description_raw}</p>
                             </div>
-
                             <div className={styles.data}>
                                 <div className={styles.platforms}>
                                     <span>Platforms:</span>
                                     <ul>
-                                        {game.platforms.map(item => {
-                                            return <li>
-                                                {icons(item.platform.slug)} <span>
-                                                    {item.platform.name}
-                                                </span>
+                                        {game.platforms.map(item => (
+                                            <li>
+                                                {icons[item.platform.slug] || icons["default"]}
+                                                <span>{item.platform.name}</span>
                                             </li>
-                                        })}
+                                        ))}
                                     </ul>
                                 </div>
                                 <div className={styles.genres} >
                                     <span>Genres:</span>
                                     <ul>
-                                        {game.genres.map(item => {
-                                            return <li>
-                                                <span>
-                                                    {item.name}
-                                                </span>
-                                            </li>
-                                        })}
+                                        {
+                                            game.genres.map(item => (
+                                                <li>
+                                                    <span>{item.name}</span>
+                                                </li>
+                                            ))
+                                        }
                                     </ul>
                                 </div>
                                 <div className={styles.esrb}>
-                                    {esrb(game.esrb_rating?.slug || 'rp')}
+                                    {esrb[game.esrb_rating?.slug || "rp"]}
                                 </div>
                             </div>
-                            {game.website && <div className={styles.links}>
-                                <span>Websites:</span>
-
-                                {game.website && <a href={game.website}>
-                                    <p>
-                                        {game.website}
-                                    </p>
-                                </a>}
-                                {game.reddit_url && <a href={game.reddit_url}>
-                                    <p>
-                                        {game.reddit_url}
-                                    </p>
-                                </a>}
-
-
-                            </div>}
-
+                            {
+                                (game.website || game.reddit_url) &&
+                                <div className={styles.links}>
+                                    <span>Websites:</span>
+                                    {
+                                        game.website &&
+                                        <a href={game.website}><p>{game.website}</p></a>
+                                    }
+                                    {
+                                        game.reddit_url &&
+                                        <a href={game.reddit_url}><p>{game.reddit_url}</p></a>
+                                    }
+                                </div>
+                            }
                         </div>
                     </>
             }
-
         </div>
     )
 
